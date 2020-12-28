@@ -1,0 +1,412 @@
+%
+% \iffalse
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage[british]{babel}
+\usepackage{infoboxes}
+\usepackage{minted}
+\begin{document}
+\DocInput{infoboxes.dtx}
+\end{document}
+%</driver>
+% \fi
+% \title{Infoboxes}
+% \author{Dr Alun Moon}
+% \maketitle
+% Documentation for infoboxes
+% \section{Using the package}
+% This package defines a number of environments I have found useful in writing
+% notes and handouts for students.
+% \subsection{Installing the package}
+% The package should come as three files 
+% \begin{enumerate}
+% \item \verb|infoboxes.dtx| --- the documentation and source
+% \item \verb|infoboxes.ins| --- the docstrip batch file for generating the
+% style file
+% \item \verb|Makefile| --- a makefile for automating creating documentation
+% and installing to \verb|${HOME}/texmf/tex|
+% \end{enumerate}
+% \paragraph{Makefile targets.}  The Makefile targets are as follows
+% \begin{description}
+% \item[\texttt{all}] (\emph{default}) builds the package file and the documentation pdf
+% \item[\texttt{doc}] builds the documentation
+% \item[\texttt{install}] installs the package file to the user \verb|texmf|
+% tree, which I have assumed is \verb|${HOME}/texmf/tex|.  This is one of the
+% defaults for \TeX live
+% \item[\texttt{clean}] deletes all the auxiliary files from building the
+% documentation
+% \item[\texttt{really-clean}] deletes the generated pdf and style files
+% \end{description}
+%
+% \paragraph{Manually}
+% To create the style file for the package run the ins file through plain
+% \TeX.
+% To create the documentation run the dtx file through \LaTeX.
+%
+% \subsection{Information boxes}
+% \newminted{latex}{}
+% \DescribeEnv{infobox} The infobox environment displays a ``post-it'' note
+% like box, the \LaTeX\ code
+%\iffalse
+%<*example>
+%\fi
+% \begin{latexcode}
+\begin{infobox}{\info}
+ Example Box
+\end{infobox}
+% \end{latexcode}
+%\iffalse
+%</example>
+%\fi
+% produces the following box.
+% \begin{infobox}{\info}
+% Example Box
+% \end{infobox}
+%
+% \subparagraph{Options} are passed to the underlying \verb!tcolorbox!, so can
+% be used to change the colour of the box.
+%
+% \noindent For example
+%\iffalse
+%<*example>
+%\fi
+% \begin{latexcode}
+\begin{infobox}[colback=red]{\info}
+Some text
+\end{infobox}
+% \end{latexcode}
+%\iffalse
+%</example>
+%\fi
+%\begin{infobox}[colback=red]{\info}
+%Some text
+%\end{infobox}
+% the colours used in the infobox are mixed with the \verb|colback| colour and
+% so change with the options.
+%
+% \subsection{Marginal icons}
+% The information-boxes display an icon in the left-hand margin, this is
+% supplied as a mandatory argument to the environment.  A number of predefined
+% icons are defined for common cases.
+%
+% \DescribeMacro{\info} For conveying information, a bold letter `i' is
+% provided.
+%\iffalse
+%<*example>
+%\fi
+% \begin{latexcode}
+\begin{infobox}{\info}
+ Some information to be conveyed.
+\end{infobox}
+% \end{latexcode}
+%\iffalse
+%</example>
+%\fi
+% \begin{infobox}{\info}
+%  Some information to be conveyed.
+% \end{infobox}
+%
+% \DescribeMacro{\gotcha} A bold exclamation-mark is useful for indicating
+% common mistakes or important information.
+%\iffalse
+%<*example>
+%\fi
+% \begin{latexcode}
+\begin{infobox}{\gotcha}
+ Some information to be conveyed.
+\end{infobox}
+% \end{latexcode}
+%\iffalse
+%</example>
+%\fi
+% \begin{infobox}{\gotcha}
+%  Some information to be conveyed.
+% \end{infobox}
+%
+% \DescribeMacro{\tricky} Knuth's double bend sign from the \verb|manfnt|
+% package is useful for indicating tricky concepts (after Knuth).
+%\iffalse
+%<*example>
+%\fi
+% \begin{latexcode}
+\begin{infobox}{\tricky}
+ Some information to be conveyed.
+\end{infobox}
+% \end{latexcode}
+%\iffalse
+%</example>
+%\fi
+% \begin{infobox}{\tricky}
+%  Some information to be conveyed.
+% \end{infobox}
+%
+% \DescribeMacro{\warning} A warning triangle from the \verb|fontawesome|
+% package is good for warning information.  I usually combine this which a red
+% colour for the box.
+%\iffalse
+%<*example>
+%\fi
+% \begin{latexcode}
+\begin{infobox}[colback=red!50]{\warning}
+ Some information to be conveyed.
+\end{infobox}
+% \end{latexcode}
+%\iffalse
+%</example>
+%\fi
+% \begin{infobox}[colback=red!50]{\warning}
+%  Some information to be conveyed.
+% \end{infobox}
+%
+% \paragraph{Any other character or symbol can be used.}
+%
+%\iffalse
+%<*example>
+%\fi
+% \begin{latexcode}
+\begin{infobox}{\faicon{github}}
+A github icon from font-awesome
+\end{infobox}
+%\end{latexcode}
+%\iffalse
+%</example>
+%\fi
+%\begin{infobox}{\faicon{github}}
+%A github icon from font-awesome
+%\end{infobox}
+%
+%
+% \subsection{Other boxes}
+% Some other boxes I've put together for use in student notes
+%
+% \DescribeEnv{terminal}
+% The terminal box I use for showing example terminal sessions, the green
+% colour is a reference to the old green phosphorous of VT100s
+% \iffalse
+%<*example>
+% \fi
+% \begin{latexcode}
+\begin{terminal}
+\begin{minted}{shell-session}
+$ tar xvf infobox.tar.gz
+\end{minted}
+\end{terminal}
+%\end{latexcode}
+%\iffalse
+%</example>
+%\fi
+%\iffalse
+%<*example>
+%\fi
+% \begin{terminal}
+% \begin{minted}{shell-session}
+$ tar xvf infobox.tar.gz
+% \end{minted}
+%\end{terminal}
+%\iffalse
+%</example>
+%\fi
+%
+%
+% \DescribeEnv{code}
+% The code box I use for displaying sections of program code.
+%\iffalse
+%<*example>
+%\fi
+% \begin{latexcode}
+\begin{code}
+\begin{minted}{c}
+#include <stdio.h>
+int main( int argc, char *argv[] ) {
+}
+\end{minted}
+\end{code}
+% \end{latexcode}
+%\iffalse
+%</example>
+%\fi
+%\iffalse
+%<*example>
+%\fi
+% \begin{code}
+% \begin{minted}{c}
+#include <stdio.h>
+int main( int argc, char *argv[] ) {
+}
+% \end{minted}
+% \end{code}
+%\iffalse
+%</example>
+%\fi
+%
+% There is an optional parameter I use for filenames
+%\iffalse
+%<*example>
+%\fi
+% \begin{latexcode}
+\begin{code}[main.c]
+\begin{minted}{c}
+#include <stdio.h>
+int main( int argc, char *argv[] ) {
+}
+\end{minted}
+\end{code}
+% \end{latexcode}
+%\iffalse
+%</example>
+%\fi
+%\iffalse
+%<*example>
+%\fi
+% \begin{code}[main.c]
+% \begin{minted}{c}
+#include <stdio.h>
+int main( int argc, char *argv[] ) {
+}
+% \end{minted}
+% \end{code}
+%\iffalse
+%</example>
+%\fi
+%
+%% 
+%%%%%%%%%%%%%%%%
+% \clearpage
+% \section{Implementation}
+% The following describes the implementation of the \LaTeX\ package.
+%
+% \paragraph{Package declaration} states that this is the \emph{infoboxes}
+% package for \LaTeX2e
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{infoboxes}
+%    \end{macrocode}
+% \paragraph{Dependencies}  This is built on top of the \emph{tcolorbox}
+% package with the \emph{skins} library.
+%    \begin{macrocode}
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins}
+%    \end{macrocode}
+% \subparagraph{manfnt} provides the code and character for the double-bend
+% sign. 
+%    \begin{macrocode}
+\RequirePackage{manfnt}
+%    \end{macrocode}
+% \subparagraph{fontawesome} has some nice icons for warnings and other
+% symbols.
+%    \begin{macrocode}
+\RequirePackage{fontawesome}
+%    \end{macrocode}
+%
+% \begin{macro}{infobox}
+% definition for the environment \texttt{infobox}\oarg{options}\marg{icon},
+% takes a single mandatory parameter, - the character to annotate the border with
+%  (see below)
+% an optional parameter addition properties for the tcbox
+%  e.g. \verb'[colback=red!50]'
+%
+% the default option for the background colour is a dark yellow, and two
+% parameters are defined, an optional one, and a mandatory one.   The default
+% value for the optional parameter sets the note's background colour
+% (\texttt{tcbcolback})
+% 
+%    \begin{macrocode}
+\newtcolorbox{infobox}[2][colback=yellow!50]{enhanced,
+%    \end{macrocode}
+% The default line for the box drawing is 0.3mm, the borders of the box are
+% 1mm wide, except for the left border which is 5mm wide.
+%    \begin{macrocode}
+    boxrule=0.3mm,left=5mm,right=1mm, top=1mm,bottom=1mm,
+%    \end{macrocode}
+% the bottom-right (southeast) corner is turned up, as if the curled corner of
+% a post-it
+%    \begin{macrocode}
+    sharp corners,rounded corners=southeast,
+	arc is angular,arc=3mm,
+%    \end{macrocode}
+% I don't recall where I got the code from, most-likely someplace in the
+% tcolorbox documentation.
+%
+% The frame colour is a little black mixed with the background colour.
+%    \begin{macrocode}
+    colframe=tcbcolback!20!black,
+%    \end{macrocode}
+% The options provided to the environment go in here to override defaults.
+%    \begin{macrocode}
+    #1, % options go here to override colframe
+%    \end{macrocode}
+% the underlay provides the drawing for the turned up corner and the broader
+% boarder with the icon
+%    \begin{macrocode}
+    underlay={%
+%    \end{macrocode}
+% Draw a little 3mm triangle for the back of the post-in turned up
+%    \begin{macrocode}
+        \path[fill=tcbcolback!80!black] 
+                ([yshift=3mm]interior.south east)
+                --([shift={(-3mm,3mm)}]interior.south east)
+                --([xshift=-3mm]interior.south east);
+%    \end{macrocode}
+% and it's border
+%    \begin{macrocode}
+        \path[draw=tcbcolframe,shorten <=-0.05mm,shorten >=-0.05mm]
+                ([yshift=3mm]interior.south east)
+                --([shift={(-3mm,3mm)}]interior.south east)
+                --([xshift=-3mm]interior.south east);
+%    \end{macrocode}
+% \paragraph{Now draw the left border}
+% as a rectangle with a darker version of the note colour (in
+% \texttt{tcbcolback}).
+% and add the icon as given by the mandatory parameter
+%    \begin{macrocode}
+        \path[fill=tcbcolback!50!black,draw=none]
+            (interior.south west) rectangle ([xshift=5.5mm]interior.north west)
+            node[anchor=north,xshift=-3mm,white]{\bfseries #2};
+    }
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{terminal}
+% box for terminal - sort of echoes the green phosphorous of old
+%    \begin{macrocode}
+\newtcolorbox{terminal}[1][]{enhanced, left=2mm,
+    colback=green!5, colframe=green!40!black, coltitle=white, 
+    fonttitle=\bfseries\ttfamily, title=#1}
+%    \end{macrocode}
+% \end{macro}
+% 
+% \begin{macro}{code}
+% box for code - optional parameter for filename
+%    \begin{macrocode}
+\newtcolorbox{code}[1][]{colframe=red!40!black,fonttitle=\bfseries\ttfamily,
+title=#1}
+%    \end{macrocode}
+% \end{macro}
+% 
+% \paragraph{symbols for use in the margin of infoboxes}
+% \begin{macro}{\info} The macro displays a large bold letter `\verb.i.' for
+% Identifying information
+%    \begin{macrocode}
+\newcommand{\info}{\mbox{\Large\textbf i}}      % an i information
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\gotcha} The macro displays a large exclamation mark.
+%    \begin{macrocode}
+\newcommand{\gotcha}{\mbox{\Large !}}           % an exclamation mark -
+                                                % important or a gotcha
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\tricky} This macro displays the double-bend sing from Knuth's
+% books.
+%    \begin{macrocode}
+\newcommand{\tricky}{\mbox{\scriptsize\dbend}}  % Knuth's double bend sign
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\warning} This macro displays a warning sign
+%    \begin{macrocode}
+\newcommand{\warning}{\mbox{\small\faicon{warning}}}  % Warning triangle
+%    \end{macrocode}
+% \end{macro}
+%
+\endinput
