@@ -2,7 +2,7 @@
 LaTeX package for drawing useful informational boxes.
 
 ## to install 
-Use the makefile 'make install' will extract the style file (as infoboxes.sty)
+Use the makefile `make install` will extract the style file (as infoboxes.sty)
 and install it into the user texmf tree.
 
 ## documentation
