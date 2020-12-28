@@ -43,8 +43,20 @@
 % \TeX.
 % To create the documentation run the dtx file through \LaTeX.
 %
-% \subsection{Information boxes}
 % \newminted{latex}{}
+% \subsection{Document preamble}
+% In the document preamble use
+%\iffalse
+%<*example>
+%\fi
+% \begin{latexcode}
+\usepackage{infoboxes}
+% \end{latexcode}
+%\iffalse
+%</example>
+%\fi
+%
+% \subsection{Information boxes}
 % \DescribeEnv{infobox} The infobox environment displays a ``post-it'' note
 % like box, the \LaTeX\ code
 %\iffalse
