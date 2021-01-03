@@ -7,4 +7,4 @@ and install it into the user texmf tree.
 
 ## documentation
 Run the dtx file through Latex to create a short user guide (pdflatex has best
-results)
+results).  Or just use `make doc`
